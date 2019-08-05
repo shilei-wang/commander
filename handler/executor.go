@@ -28,8 +28,7 @@ func ExeSysCommand() http.HandlerFunc {
 			log.Printf("COMMAND: \n `%v + %v`", cmdStr, args)
 		}
 
-
-
+		//密码
 		for _, write := range args {
 			stdin.Write([]byte(write + "\n"))
 		}
@@ -89,6 +88,8 @@ func getCmd(command string, escapeParams []string) *exec.Cmd {
 				i--
 				continue
 			}
+
+			//不停的拼接，直到遇到下一个 --
 			tempStr = tempStr + " " + s
 		} else {
 			cmdArray = append(cmdArray, s)
@@ -98,8 +99,6 @@ func getCmd(command string, escapeParams []string) *exec.Cmd {
 	if escape {
 		cmdArray = append(cmdArray, escapeQuotes(tempStr))
 	}
-
-
 
 	var cmd *exec.Cmd
 	if len(cmdArray) == 1 {

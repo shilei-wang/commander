@@ -1,6 +1,6 @@
 package main
 
-import "gitlab.bianjie.ai/bianjieai/commander/cmd"
+import "github.com/irisnet/commander/cmd"
 
 func main() {
 	cmd.Execute()

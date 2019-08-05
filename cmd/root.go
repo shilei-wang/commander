@@ -3,12 +3,11 @@ package cmd
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/irisnet/commander/handler"
 	"github.com/spf13/cobra"
+	"log"
 	"net/http"
 	"os"
-	"github.com/spf13/viper"
-	"log"
-	"gitlab.bianjie.ai/bianjieai/commander/handler"
 )
 
 var rootCmd = &cobra.Command{
@@ -38,11 +37,3 @@ func Execute() {
 	}
 }
 
-func init() {
-	cobra.OnInitialize(initConfig)
-}
-
-// initConfig reads in config file and ENV variables if set.
-func initConfig() {
-	viper.AutomaticEnv() // read in environment variables that match
-}

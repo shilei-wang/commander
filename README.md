@@ -6,11 +6,19 @@
 ## 安装
 
 ```$shell
-git clone https://gitlab.bianjie.ai/bianjieai/commander.git
-cd commander
+cd /Users/sherlock/go/src/github.com/irisnet/commander
+//外网
 dep ensure
 go install
 ```
+
+参数
+http://${commanderIP}:8080
+
+x-www-form-urlencoded:
+command iriscli keys list
+args    1234567890
+escapes  --param,--idl-content
 
 ## 运行
 
@@ -20,4 +28,3 @@ commander
 
 ## 调用
 
-![example](img/request.png)
