@@ -44,6 +44,15 @@ func ExeSysCommand() http.HandlerFunc {
 		}
 
 		response := string(output)
+		response_err := string(errmsg)
+
+
+		if (response == "") && (response_err != "") {
+			log.Printf("RESPONSE(read from error):  \n  %v", response_err)
+			w.Write([]byte(errmsg))
+			return
+		}
+
 
 		if !strings.Contains(response, "node_info") {
 			log.Printf("RESPONSE:  \n  %v", response)
